@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css">
+    <title>UC Davis Course Search</title>
+    <script type="module" src="main.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>UC Davis Course Search</h1>
+    </header>
+    <main>
+        <form id="filter">
+            <details>
+                <summary>JSON Layout:</summary>
+                <pre>
+{
+    "course": string:,
+    "title": string,
+    "units": number?,
+    "topical": {
+        "ah": bool,
+        "se": bool,
+        "ss": bool
+    },
+    "literacies": {
+        "acgh": bool,
+        "dd": bool,
+        "ol": bool,
+        "ql": bool,
+        "sl": bool,
+        "vl": bool,
+        "wc": bool,
+        "we": bool
+    },
+    "description": string,
+    "prerequisite": string,
+    "course_cross_listing": string,
+    "most_recent_term_offered": string
+}
+                </pre>
+            </details>
+            <label for="filter_text">Filter expression as JS (use $ to refer to item):</label>
+            <input type="text" name="filter_text" style="font-family:var(--pico-font-family-monospace)"
+                placeholder="$.topical.ah && $.literacies.we" />
+        </form>
+        <div id="all_courses">
+            <!-- main.js populates this -->
+        </div>
+
+    </main>
+    <footer>
+        <!-- TODO: add something here -->
+    </footer>
+</body>
+</html>
